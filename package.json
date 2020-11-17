@@ -2,7 +2,7 @@
   "name": "template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://95rolancia.github.io/react-basic-habit-tracker",
+  "homepage": "https://95rolancia.github.io/habit-tracker-react",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@testing-library/jest-dom": "^4.2.4",
