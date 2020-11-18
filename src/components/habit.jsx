@@ -1,53 +1,35 @@
-import React, { PureComponent } from 'react';
+import React, { memo } from 'react';
 
-class Habit extends PureComponent {
-  componentDidMount() {
-    console.log(`habit: ${this.props.habit.name} mounted`);
-  }
+const Habit = memo((props) => {
+  const { name, count } = props.habit;
 
-  componentWillUnmount() {
-    console.log(`habit: ${this.props.habit.name} will be unmounted`);
-  }
-
-  handleIncrement = () => {
-    this.props.onIncrement(this.props.habit);
+  const handleIncrement = () => {
+    props.onIncrement(props.habit);
   };
 
-  handleDecrement = () => {
-    this.props.onDecrement(this.props.habit);
+  const handleDecrement = () => {
+    props.onDecrement(props.habit);
   };
 
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit);
+  const handleDelete = () => {
+    props.onDelete(props.habit);
   };
 
-  render() {
-    const { name, count } = this.props.habit;
-    return (
-      <li className="habit">
-        <span className="habit-name">{name}</span>
-        <span className="habit-count">{count}</span>
-        <button
-          className="habit-button habit-increase"
-          onClick={this.handleIncrement}
-        >
-          <i className="fas fa-plus-square"></i>
-        </button>
-        <button
-          className="habit-button habit-decrease"
-          onClick={this.handleDecrement}
-        >
-          <i className="fas fa-minus-square"></i>
-        </button>
-        <button
-          className="habit-button habit-delete"
-          onClick={this.handleDelete}
-        >
-          <i className="fas fa-trash"></i>
-        </button>
-      </li>
-    );
-  }
-}
+  return (
+    <li className="habit">
+      <span className="habit-name">{name}</span>
+      <span className="habit-count">{count}</span>
+      <button className="habit-button habit-increase" onClick={handleIncrement}>
+        <i className="fas fa-plus-square"></i>
+      </button>
+      <button className="habit-button habit-decrease" onClick={handleDecrement}>
+        <i className="fas fa-minus-square"></i>
+      </button>
+      <button className="habit-button habit-delete" onClick={handleDelete}>
+        <i className="fas fa-trash"></i>
+      </button>
+    </li>
+  );
+});
 
 export default Habit;
